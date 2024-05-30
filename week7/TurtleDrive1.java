@@ -1,4 +1,4 @@
-package week7;
+package homework.turtle;
 // sample client for testing
 /**
  * 다각형을 n개, 360/n 번 회전하여 그리는 프로그램

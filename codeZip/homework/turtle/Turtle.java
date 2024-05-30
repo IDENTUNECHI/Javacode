@@ -1,4 +1,4 @@
-package week7;
+package homework.turtle;
 
 /**AUTHOR: NICHOLAS SEWARD
  * EMAIL: nicholas.seward@gmail.com
