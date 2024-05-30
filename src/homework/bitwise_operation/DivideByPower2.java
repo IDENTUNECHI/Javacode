@@ -1,4 +1,4 @@
-package homework.two_array3;
+package homework.bitwise_operation;
 
 import java.util.Scanner;
 

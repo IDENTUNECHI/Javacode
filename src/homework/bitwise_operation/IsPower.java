@@ -1,4 +1,4 @@
-package homework.two_array3;
+package homework.bitwise_operation;
 
 //package week13;
 
