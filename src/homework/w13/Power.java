@@ -1,15 +1,15 @@
-
+package homework.w13;
 
 import java.util.Scanner;
 
-public class Main {
+public class Power {
     public static void main(String[] args){
         Scanner input = new Scanner(System.in);
         System.out.print("밑수: ");
         int base = input.nextInt();
         System.out.print("지수: ");
         int expo = input.nextInt();
-        System.out.printf("%d의 %d승 = %ld", base, expo, raise(base, expo));
+        System.out.printf("%d의 %d승 = %d", base, expo, raise(base, expo));
     }
 
     /**
@@ -19,9 +19,9 @@ public class Main {
      * @return base의 expo 거듭제곱.
      */
     public static long raise(int base, int expo){
-        if(base == 1)
-            return 1;
+        if(expo == 1)
+            return base;
         else
-            return base * raise(base, expo);
+            return base * raise(base, expo-1);
     }
 }

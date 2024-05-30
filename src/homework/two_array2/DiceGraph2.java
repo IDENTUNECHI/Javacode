@@ -100,9 +100,6 @@ public class DiceGraph2 {
             }
             System.out.println();
         }
-
-
-
         }
 }
 
