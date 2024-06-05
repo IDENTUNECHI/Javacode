@@ -16,6 +16,7 @@ public class StringBuilderTest {
         long afterTime1= System.currentTimeMillis();
         long sec1 = afterTime1-beforeTime1;
 
+
         // 두 번째 방법
         long beforeTime2= System.currentTimeMillis();
         // 새 StringBuilder 인스턴스를 만든다.
