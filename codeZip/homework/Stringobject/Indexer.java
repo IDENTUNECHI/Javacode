@@ -20,12 +20,9 @@ public class Indexer{
 
         sum += a_index;
 
-
         sum += b_index;
 
-
         sum += c_index;
-
 
         System.out.println(sum);
     }
