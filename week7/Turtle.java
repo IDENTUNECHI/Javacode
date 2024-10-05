@@ -1,4 +1,4 @@
-package homework.turtle;
+package java1.turtle;
 
 /**AUTHOR: NICHOLAS SEWARD
  * EMAIL: nicholas.seward@gmail.com
