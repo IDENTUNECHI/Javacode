@@ -1,5 +1,8 @@
 package java2.week4_interface;
 
+/**
+ * 두 개의 인터페이스인 Measurable과 Comparable<Rextangle4>을 구현</>
+ */
 public class Rectangle4 implements Measurable, Comparable<Rectangle4> {
     private double width, height;	// 필드
 
@@ -13,10 +16,12 @@ public class Rectangle4 implements Measurable, Comparable<Rectangle4> {
     }
 
     @Override
+    // Measurable 인터페이스 getMeasure() 메소드 구현
     public double getMeasure() {
         return width*height;
     }
 
+    // Comparable 인터페이스 compareTo() 메소드 구현
     public int compareTo(Rectangle4 o) {
         double thisArea = width * height;
         double otherArea = o.width * o.height;
@@ -49,7 +54,11 @@ public class Rectangle4 implements Measurable, Comparable<Rectangle4> {
         return String.format("Rectangle4 [width=%,.1f, height=%,.1f]", width, height);
         //참고: System.out.format("출력하고 싶은 문자열%,.1f문자열", 123123.27);
     }
-    // 필드
+    /**
+     * java.lang.Comaprable;
+     * 이 인터페이스는 compareTo()라는 한 개의 메소드만을 가지며,
+     * 타입 파라미터를 갖는 "generic" 인터페이스.
+     *
+     */
 }
-
 

@@ -26,19 +26,23 @@ public class RectangleTester {
         //배열에 저장
         Rectangle[] rectArray = {rect1, rect2, rect3};
 
-        // ArrayList에 저장 cf) 잘 기억해두자
+        // generic class인 ArrayList에 저장 cf) 잘 기억해두자
         ArrayList<Rectangle> rectList = new ArrayList<>();
 
+
+        // Rectangle rect1, 2, 3를 ArrayList에 차곡차곡 더함
+        // rectList = {rect1, rect2, rect3};
         rectList.add(rect1);
         rectList.add(rect2);
         rectList.add(rect3);
 
+        //배열에 저장한 값 출력
         System.out.println("Print the array using for-each loop.");
         for (Rectangle rect : rectArray)
             System.out.println(rect.toString());
 
         System.out.println();
-
+        //ArrayList에 저장한 값 출력
         System.out.println("Print the array list using for-each loop.");
         for(Rectangle rect : rectList)
             System.out.println(rect.toString());

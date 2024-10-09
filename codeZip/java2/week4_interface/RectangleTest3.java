@@ -34,6 +34,10 @@ public class RectangleTest3 {
         printArray(rect1, rect2, rect3);
 
         System.out.println();
+
+        // 사실 이 부분은 RectangleTester2를 그대로 가져와서 출력 오류가 생겼으나
+        // 어쩔 수 없이 따로 printArraySet을 만들어 재설정된
+        // rect1을 새로 정의된 rectList를 통해 출력
         System.out.println("Replace the first Rectangle in the ArrayList with a new Rectangle (5.0, 5.0)");
         System.out.println();
         // ArrayList 생성 및 첫 번째 요소 교체
@@ -89,6 +93,12 @@ public class RectangleTest3 {
             System.out.println(rect.toString());
 
     }
+
+    /**
+     * @param rect1 사각형 1
+     * @param rect2 사각형 2
+     * @param rect3 사각형 3
+     */
 
     private void printArraySet(Rectangle rect1, Rectangle rect2, Rectangle rect3) {
 

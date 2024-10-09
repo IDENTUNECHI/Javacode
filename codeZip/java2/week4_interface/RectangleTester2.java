@@ -27,11 +27,11 @@ public class RectangleTester2 {
 
         printArray(rect1, rect2, rect3);
 
+        // rect1에 width와 height를 크기를 재설정한다.
         System.out.println("Resize the first Rectangle in the ArrayList to (1.0, 2.0).");
 
         rect1.setDimension(1.0, 2.0);
         printArray(rect1, rect2, rect3);
-
     }
 
     /**
