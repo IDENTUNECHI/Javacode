@@ -85,7 +85,6 @@ public class CollectionsExercise {
 
         int maxValue = Collections.max(map.values()); // map에서 Value 값 최대값 찾기
                                                       // 1 10 10을 입력했을 때, 최대값 3
-
         // 중복 횟수의 빈도수 조사
         int[] frequency = new int[maxValue+1];
         for(int count : map.values()){

@@ -14,6 +14,7 @@ import java.util.*;
  * ArrayList나 LinkedList와 같은 특정 구현 클래스를 반환하는지 명확하지 않기 때문에
  * List 타입으로 받아야 합니다.
  */
+
 public class AsListTest {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);

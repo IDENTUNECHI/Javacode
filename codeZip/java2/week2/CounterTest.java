@@ -4,7 +4,7 @@ public class CounterTest {
     public static void main(String[] args) {
 
 
-        Counter counter = new Counter();
+        Counter3 counter = new Counter3();
         counter.setCount(8);
 
         counter.tick();

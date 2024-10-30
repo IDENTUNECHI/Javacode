@@ -1,4 +1,4 @@
-package java2.week6_Exception.arraylist2;
+package java2Core.w6_exception;
 
 import java.util.Arrays;
 
@@ -11,8 +11,8 @@ public class ArrayIntList {
     private int max;
 
     public ArrayIntList(){
-        size = 0;
         element = new int [DEFAULT_CAPACITY];
+        size = 0;
         min = 0;
         max = 0;
     }
@@ -22,13 +22,14 @@ public class ArrayIntList {
      * @param capacity 초기 용량 (0 이상)
      */
     public ArrayIntList(int capacity){
-        if(capacity < 0) {
-            throw new IllegalArgumentException("capacity cannot be negative: " + capacity);
+        if(capacity < 0){
+            throw new IllegalArgumentException();
         }
-        size = 0;
+
         element = new int [capacity];
-        max = 0;
+        size = 0;
         min = 0;
+        max = 0;
     }
 
     /**
@@ -54,7 +55,34 @@ public class ArrayIntList {
         element[index] = value;
         size++;
         max = size;
+    }
 
+    /**
+     * 주어진 인덱스의 값을 제거하고 그 이후에 있는 값들을
+     * 앞으로 한 칸씩 이동한다.
+     * 일단 index는 0이상, size 미만이라고 가정한다.
+     * @param index 인덱스.
+     */
+    public void remove(int index) {
+        checkIndex(index, min, max);
+
+        element[index] = 0;
+        for(int i=index; i<size-1; i++){
+            element[i] = element[i+1];
+        }
+        size--;
+        max = size;
+    }
+
+    /**
+     * 주어진 값을 리스트의 마지막에 추가한다.
+     * 만약 배열이 이미 꽉 찬 상태이면 배열의 크기를 늘인다.
+     * @param value 추가할 값
+     */
+    public void add(int value) {
+        element[size] = value;
+        size++;
+        max = size;
     }
 
     /**
@@ -68,23 +96,9 @@ public class ArrayIntList {
      * Arrays.copyOf(int [] original, int newLength)
      */
     private void checkResize() {
-
-        if(size == element.length) {
-            element = Arrays.copyOf(element,  element.length*2);
+        if(element.length >= size){
+            element = Arrays.copyOf(element, element.length*2);
         }
-
-    }
-
-    /**
-     * 주어진 값을 리스트의 마지막에 추가한다.
-     * 만약 배열이 이미 꽉 찬 상태이면 배열의 크기를 늘인다.
-     * @param value 추가할 값
-     */
-    public void add(int value) {
-        checkResize();
-        element[size] = value;
-        size++;
-        max = size;
 
     }
 
@@ -123,26 +137,7 @@ public class ArrayIntList {
      * @return 빈 리스트인 경우 true, 그렇지 않으면 false.
      */
     public boolean isEmpty() {
-        if(this.size == 0)
-            return true;
-        else
-            return false;
-    }
-
-    /**
-     * 주어진 인덱스의 값을 제거하고 그 이후에 있는 값들을
-     * 앞으로 한 칸씩 이동한다.
-     * 일단 index는 0이상, size 미만이라고 가정한다.
-     * @param index 인덱스.
-     */
-    public void remove(int index) {
-        checkIndex(index, min, max);
-        element[index] = 0;
-        for(int i=index; i<size-1; i++){
-            element[i] = element[i+1];
-        }
-        size--;
-        max = size;
+        return size == 0;
     }
 
     /**
@@ -150,10 +145,9 @@ public class ArrayIntList {
      * @return
      */
     public boolean contains(int value){
-        for(int i=0; i<size; i++){
-            if(element[i] == value){
+        for(int factor : element){
+            if(factor == value)
                 return true;
-            }
         }
         return false;
     }
@@ -180,14 +174,14 @@ public class ArrayIntList {
      * @param max 최대값
      */
     private void checkIndex(int index, int min, int max) {
-        if(index < min || index >= max) {
-            throw new ArrayIndexOutOfBoundsException("Wrong index: "+ index);
+        if(min > index || index >= max){
+            throw new IndexOutOfBoundsException("wrong index: "+ index);
         }
     }
 
     private void checkIndexForAdd(int index, int min, int max) {
-        if(index < min || index > max) {
-            throw new ArrayIndexOutOfBoundsException("Wrong index: "+ index);
+        if(min > index || index > max){
+            throw new IndexOutOfBoundsException("wrong index: "+ index);
         }
     }
 
@@ -198,11 +192,9 @@ public class ArrayIntList {
      * @return 출력 함수
      */
     public String toString(){
-        if(size == 0){
-            return "[]";
-        }
-        return Arrays.toString(Arrays.copyOf(element, size));
 
+
+        return Arrays.toString(Arrays.copyOf(element, size));
     }
 
 }
