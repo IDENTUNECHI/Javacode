@@ -1,38 +1,45 @@
 package baekjun;
+import javax.swing.*;
 import java.util.*;
 
-
-public class Main {
+class Main {
 
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
-        int x = input.nextInt();
-        int y = input.nextInt();
-        int c = input.nextInt();
 
-        double sum = 0.0;
-        int count = 0;
-        double xy = Math.sqrt(x*x + y*y);
+        int n = input.nextInt();
+        int [] a = new int [n];
+        for(int i=0 ;i<n; i++){
+            a[i] = input.nextInt();
 
-        if(x==0 && y == 0){
-            System.out.println(0);
+        }
+        Arrays.sort(a);
+        int m = input.nextInt();
+        int [] b = new int [n];
+        for(int i=0 ;i<m; i++){
+            b[i] = input.nextInt();
+        }
+        Arrays.sort(b);
+        int [] result = new int [m];
+        int low = 0;
+        int high = b.length;
+        while(low<=high){
+            for(int i=0; i<m; i++){
+                int mid = (high+low)/2;
+                if(a[mid]>b[i]){
+                    high = mid-1;
+                }
+                else if (a[mid] < b[i])
+                    high = mid + 1;
+                else
+                    result[i] = 1;
+            }
         }
 
-        else if(Math.sqrt(x*x + y*y) < c){
-            System.out.println(2);
+        for(int factor: result){
+            System.out.println(factor);
         }
-
-        else if(Math.sqrt(x*x + y*y) == c){
-            System.out.println(1);
-        }
-
-        else {
-            if(xy % c == 0.0)
-                System.out.println((int)xy/c);
-            else
-                System.out.println((int)xy/c+1);
-        }
-
 
     }
+
 }
