@@ -1,4 +1,4 @@
-package java2Core.w6_exception;
+package java2.java2Core.w6_exception;
 
 import java.util.Arrays;
 

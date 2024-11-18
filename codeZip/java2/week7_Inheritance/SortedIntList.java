@@ -8,7 +8,7 @@ import java.util.*;
 
 public class SortedIntList extends ArrayIntList{
     protected boolean uniqueness;
-    protected int size = 0;
+    //protected int size = 0;
     /**
      * 기본 용량 10을 갖는, uniqueness가 false로 설정된 리스트를 생성한다.
      * 원소의 중복 허용
@@ -48,52 +48,33 @@ public class SortedIntList extends ArrayIntList{
     }
 
     /**
-     * 항상 오름차순으로 정렬
-     */
-    public void sort(){
-
-        for(int i=0; i< size; i++){
-            for(int j=0; j< size-1; j++){
-                if(element[j]>element[j+1]){
-                    int tmp = element[j];
-                    element[j] = element[j+1];
-                    element[j+1] = tmp;
-                }
-            }
-        }
-    }
-    /**
      * value를 리스트의 끝에 추가하는 대신 오름차순이 유지되도록 하는 위치에 삽입
      * uniqueness가 true일때 value가 중복되었다면 넣지 말아야함
      * @param value 추가할 값.
      */
     public void add(int value){
-        sort(); // 오름차순으로 정렬
+         // 오름차순으로 정렬
         int index1 = Arrays.binarySearch(element, 0, size, value);
-
-        if(size == element.length) {
-            element = Arrays.copyOf(element,  element.length+1);
-        }
 
             if (uniqueness) { // 중복 불가능
                 if (index1 < 0) { // value가 해당 배열에 없음
                     int index = Math.abs(index1 + 1);
                     super.add(index, value);
-                    size++;
+                    //size++;
                 }
             }
             else {
                 if (index1 < 0) { // value가 해당 배열에 없음
                     int index = Math.abs(index1 + 1);
                     super.add(index, value);
-                    size++;
+                    //size++;
+
                 } else {
                     int index = Math.abs(index1 + 1);
                     super.add(index, value);
-                    size++;
+                    //size++;
                 }
             }
-
     }
     public void add(int index, int value){
         throw new UnsupportedOperationException();
@@ -101,7 +82,7 @@ public class SortedIntList extends ArrayIntList{
 
     /**
      * 현재의 uniqueness 설정 내역을 반환
-     * @return
+     * @return uniqueness
      */
     public boolean getUnique(){
         return this.uniqueness;
@@ -113,7 +94,7 @@ public class SortedIntList extends ArrayIntList{
      * 여기는 내일 다시 해보자
      * @param value true or false
      */
-    public void setUniqueness(boolean value) {
+    public void setUnique(boolean value) {
         if(uniqueness == value){
             return;
         }
@@ -121,11 +102,10 @@ public class SortedIntList extends ArrayIntList{
 
         if (uniqueness) {
             // 중복을 제거하기 위해 리스트를 정렬합니다.
-            sort();
 
             int uniqueCount = 0; // 중복되지 않은 원소의 개수
             for (int i = 0; i < size; i++) {
-                if (i == 0 || element[i] != element[uniqueCount - 1]) {
+                if (i==0 || element[i] != element[uniqueCount - 1]) {
                     // 첫 원소이거나, 이전 원소와 다른 경우
                     element[uniqueCount] = element[i];
                     uniqueCount++;
@@ -152,17 +132,17 @@ public class SortedIntList extends ArrayIntList{
         int[] activeElements = Arrays.copyOfRange(element, 0, size);
 
         if (uniqueness) {
-            return "S:" + Arrays.toString(activeElements) + " U";
+            return "S:" + Arrays.toString(activeElements) + "U";
         }
         return "S:" + Arrays.toString(activeElements);
 
     }
 
     public int indexOf(int value) {
-        sort();
+
         int index = Arrays.binarySearch(element, 0, size, value);
 
-        return index;
+        return index >= 0 ? index : -1;
     }
 
 }

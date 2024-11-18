@@ -1,4 +1,4 @@
-package java2Core.w3_Object2;
+package java2.java2Core.w3_Object2;
 
 import java2.week3.Counter;
 

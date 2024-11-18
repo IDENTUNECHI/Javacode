@@ -1,4 +1,4 @@
-package java2Core.w4_Interface;
+package java2.java2Core.w4_Interface;
 
 import java2.week4_interface.Measurable;
 

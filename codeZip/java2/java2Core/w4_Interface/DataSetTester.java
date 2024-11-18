@@ -1,8 +1,7 @@
-package java2Core.w4_Interface;
+package java2.java2Core.w4_Interface;
 
 import java2.week4_interface.BankAccount;
 import java2.week4_interface.DataSet;
-import java2.week4_interface.Measurable;
 import java2.week4_interface.Rectangle2;
 
 import java.util.Random;

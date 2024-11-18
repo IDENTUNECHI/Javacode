@@ -1,4 +1,4 @@
-package java2Core.w5_Collection;
+package java2.java2Core.w5_Collection;
 
 import java.util.*;
 

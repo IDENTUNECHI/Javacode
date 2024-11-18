@@ -3,29 +3,12 @@ package java2.week7_Inheritance;
 /**
  * SortedIntList에 정수들을 add하면 
  * 오름차순으로 정렬된 상태로 저장되는지 확인하는 아주 간단한 테스트 프로그램.
- * 테스트를 추가할 수 있다.
- * 
- *  이 프로그램은 JUnit 테스트 파일이 아니고
- *  단순히 main 메소드를 갖는 하나의 프로그램이다.
  */
 
-public class SimpleTest {
+public class SimpleTest1 {
 
 	public static void main(String[] args) {
-		
-		System.out.println("Test step 1 development ==========");
-		test1();
 
-		System.out.println("Test step 2 development ==========");
-		test2();
-
-		System.out.println("Test step 3 development ==========");
-		test3();
-
-	}
-	
-	static void test1() {
-		
 		SortedIntList list;
 
 		// 네 개의 생성자 테스트
@@ -99,63 +82,6 @@ public class SimpleTest {
 
 		System.out.println();
 
+
 	}
-	
-	static void test2() {
-		
-		SortedIntList list;
-
-		System.out.println("Construct a list with capacity 5 and unique true");
-		list = new SortedIntList(true, 5);
-		System.out.println(list);
-
-		System.out.println("Test add(value) - check sorting and uniqueness --------");
-		System.out.println("Add 33, 12, -9, 1024, 1024, 1024");
-		list.add(33);
-		list.add(12);
-		list.add(-9);
-		list.add(1024);
-		list.add(1024);
-		list.add(1024);
-		System.out.println(list);
-
-		System.out.println();
-	}
-	
-	static void test3() {
-		
-		SortedIntList list;
-
-		System.out.println("Construct a list with capacity 5 and uniquenes false");
-		list = new SortedIntList(false, 5);
-		System.out.println(list);
-
-		System.out.println("Add 33, 12, -9, 1024, 1024, 1024");
-		list.add(33);
-		list.add(12);
-		list.add(-9);
-		list.add(1024);
-		list.add(1024);
-		list.add(1024);
-		System.out.println(list);
-		
-		System.out.println("Test getUnique()");
-		System.out.println("Uniqueness: " + list.getUnique());
-		
-		System.out.println("Test setUnique(true)");
-		list.setUnique(true);
-		System.out.println(list);
-		
-		System.out.println("Test setUnique(false)");
-		list.setUnique(false);
-		System.out.println(list);
-		
-		System.out.println("Add 5, -9");
-		list.add(5);
-		list.add(-9);
-		System.out.println(list);
-
-		System.out.println();
-	}
-	
 }

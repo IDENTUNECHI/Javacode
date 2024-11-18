@@ -1,4 +1,4 @@
-package java2Core.w6_exception;
+package java2.java2Core.w6_exception;
 
 public class UseList2 {
     public static void main(String[] args) {

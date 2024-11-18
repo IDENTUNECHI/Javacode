@@ -1,4 +1,4 @@
-package java2Core.w4_Interface;
+package java2.java2Core.w4_Interface;
 
 public class DataSet {
     private double sum; // 측정값의 합

@@ -1,3 +1,5 @@
+package java2.week7_Inheritance;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -10,13 +12,13 @@ import java.util.Random;
 import org.junit.Test;
 
 public class Test1 {
-
+	
     // number of elements to use in the checkAdd and checkIndexOf tests
     private static final int BASIC_TEST_SIZE = 10;
-
+    
     // number of elements to use in the checkSpeed test (should be very large)
     private static final int SPEED_TEST_SIZE = 200000;
-
+    
     // This method adds a series of numbers to the list and makes sure that
     // the size increases and that it produces a sorted list.
     @Test(timeout = 2000)
@@ -29,16 +31,16 @@ public class Test1 {
             String old = list.toString();
             // pick a number between -testSize and +testSize, add to list
             int next = r.nextInt(2 * testSize + 1) - testSize;
-
+            
             // randomly add the element to the list
             // (it should stay sorted)
             int expectedSize = i + 1;
             list.add(next);
-
+            
             // check list size and make sure list is sorted
             assertEquals(expectedSize, list.size(), "size after adding " + expectedSize + " items (unique=false)");
-            assertTrue(isSorted(list), "after adding " + next + ", list is not sorted.  List before add = " +
-                    old + ";\nlist after  add = " + list);
+            assertTrue(isSorted(list), "after adding " + next + ", list is not sorted.  List before add = " + 
+            		old + ";\nlist after  add = " + list);
         }
     }
 
@@ -68,7 +70,7 @@ public class Test1 {
     @Test(timeout = SPEED_TEST_SIZE / 2)
     public void checkAddSpeed() {
         int testSize = SPEED_TEST_SIZE;
-
+        
         // fill up the list with even numbers
         SortedIntList list = new SortedIntList(false, testSize);
         for (int i = 0; i < testSize; i++) {
@@ -96,28 +98,28 @@ public class Test1 {
 
     // Compares the boolean array to the SortedIntList to make sure that
     // they match.  If a number has not been chosen, then its index should be
-    // reported as -1.  If it has been chosen, then it should have a
+    // reported as -1.  If it has been chosen, then it should have a 
     // non-negative index and the number should actually be at that index.
     private void checkIndexes(int testSize, boolean[] chosen, SortedIntList list) {
         for (int i = 0; i < chosen.length; i++) {
             int original = i - testSize;
             int index = list.indexOf(original);
-
+            
             // then check for bad cases
             if (chosen[i]) {
-                // item SHOULD be found
+            	// item SHOULD be found
                 assertTrue(index >= 0, "indexOf " + original + " should not be negative (" + index
                         + "); list = " + list);
-                assertTrue(index < list.size(), "indexOf " + original + " should not be past the end of the list (" +
-                        index + "); list = " + list);
+                assertTrue(index < list.size(), "indexOf " + original + " should not be past the end of the list (" + 
+                		index + "); list = " + list);
                 assertEquals(original, list.get(index), "indexOf " + original + "; list = " + list);
             } else {
-                // item should NOT be found (negative index returned)
+            	// item should NOT be found (negative index returned)
                 assertTrue(index < 0, "indexOf " + original + " must be negative; list = " + list);
             }
         }
     }
-
+    
     // Briefly tests the toString method for a non-unique list.
     @Test(timeout = 1000)
     public void checkToString() {
@@ -128,7 +130,7 @@ public class Test1 {
         list.add(2);
         assertEquals("S:[-1, 2, 5, 17]", list.toString());
     }
-
+    
     // Briefly tests the min/max methods.
     @Test(timeout = 1000)
     public void checkMinMax() {
@@ -141,4 +143,3 @@ public class Test1 {
         assertEquals(17, list.max(), "maximum value in " + list);
     }
 }
-

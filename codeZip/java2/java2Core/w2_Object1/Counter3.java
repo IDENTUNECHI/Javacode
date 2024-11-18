@@ -1,4 +1,4 @@
-package java2Core.w2_Object1;
+package java2.java2Core.w2_Object1;
 
 /**
  * 최대값에 도달하면 다시 0부터 세기 시작하는 계수기

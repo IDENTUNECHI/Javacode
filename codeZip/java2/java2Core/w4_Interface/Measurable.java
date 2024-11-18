@@ -1,4 +1,4 @@
-package java2Core.w4_Interface;
+package java2.java2Core.w4_Interface;
 
 /**
  * Measurable 인터페이스
