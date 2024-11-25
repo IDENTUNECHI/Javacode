@@ -60,6 +60,7 @@ public class RectangleTester4 {
          */
 
         System.out.println("Sort by diagonal length");
+        Thread.currentThread().getName();
         /////
         Arrays.sort(rectangles, new DiagonalComparator()); // 두 개의 파라미터
         Collections.sort(rectangleList, new DiagonalComparator());
