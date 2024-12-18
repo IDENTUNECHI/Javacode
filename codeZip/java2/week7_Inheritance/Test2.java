@@ -14,7 +14,10 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.Random;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.Timeout;
+
+import java.util.concurrent.TimeUnit;
 
 public class Test2 {
     private static final int TEST_SIZE = 25;
@@ -22,7 +25,8 @@ public class Test2 {
     //the lower this is, the more duplicates there will be
     private static final int MAX_INT = 10;
     
-    @Test(timeout = 2000)
+    @Test
+    @Timeout(value = 2, unit = TimeUnit.SECONDS)
     public void testConstructor1() {
         //test the first constructor
         SortedIntList list = new SortedIntList(true, DEFAULT_CAPACITY);
@@ -30,7 +34,8 @@ public class Test2 {
         helper(list, true);
     }
     
-    @Test(timeout = 2000)
+    @Test
+    @Timeout(value = 2, unit = TimeUnit.SECONDS)
     public void testConstructor2() {
         //test the second constructor
         SortedIntList list = new SortedIntList(true, TEST_SIZE);
@@ -38,7 +43,8 @@ public class Test2 {
         helper(list, true);
     }
                 
-    @Test(timeout = 2000)
+    @Test
+    @Timeout(value = 2, unit = TimeUnit.SECONDS)
     public void testConstructor3() {
         //test the third constructor
         SortedIntList list = new SortedIntList(false, DEFAULT_CAPACITY);
@@ -46,7 +52,8 @@ public class Test2 {
         helper(list, false);
     }
                 
-    @Test(timeout = 2000)
+    @Test
+    @Timeout(value = 2, unit = TimeUnit.SECONDS)
     public void testConstructor4() {
         //test the fourth constructor
         SortedIntList list = new SortedIntList(false, TEST_SIZE);
@@ -54,7 +61,8 @@ public class Test2 {
     }
         
     // Briefly tests the toString method for a unique list.
-    @Test(timeout = 1000)
+    @Test
+    @Timeout(value = 1, unit = TimeUnit.SECONDS)
     public void testToString2NonUnique() {
         SortedIntList list = new SortedIntList(5);
         list.add(5);
@@ -64,7 +72,8 @@ public class Test2 {
         assertEquals("S:[-1, 2, 5, 17]", list.toString());
     }
 
-    @Test(timeout = 1000)
+    @Test
+    @Timeout(value = 1, unit = TimeUnit.SECONDS)
     public void testToString3Unique() {
         SortedIntList list = new SortedIntList(true);
         list.add(6);

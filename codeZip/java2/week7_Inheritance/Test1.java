@@ -9,7 +9,9 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
  */
 import java.util.Random;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.Timeout;
+import java.util.concurrent.TimeUnit;
 
 public class Test1 {
 	
@@ -21,7 +23,8 @@ public class Test1 {
     
     // This method adds a series of numbers to the list and makes sure that
     // the size increases and that it produces a sorted list.
-    @Test(timeout = 2000)
+    @Test
+    @Timeout(value = 2, unit = TimeUnit.SECONDS)
     public void checkAdd() {
         int testSize = BASIC_TEST_SIZE;
         SortedIntList list = new SortedIntList(false, testSize);
@@ -48,7 +51,8 @@ public class Test1 {
     // track of what values have been added.  It then checks often to make
     // sure that indexOf returns values that make sense given the set of
     // values that have been added to the list.
-    @Test(timeout = 2000)
+    @Test
+    @Timeout(value = 2, unit = TimeUnit.SECONDS)
     public void checkIndexOf() {
         int testSize = BASIC_TEST_SIZE;
         SortedIntList list = new SortedIntList(false, testSize);
@@ -67,7 +71,8 @@ public class Test1 {
 
     // This method constructs a very large list of even numbers and calls
     // indexOf many times to make sure that the code is fast.
-    @Test(timeout = SPEED_TEST_SIZE / 2)
+    @Test
+    @Timeout(value = SPEED_TEST_SIZE / 2, unit = TimeUnit.MILLISECONDS)
     public void checkAddSpeed() {
         int testSize = SPEED_TEST_SIZE;
         
@@ -121,7 +126,8 @@ public class Test1 {
     }
     
     // Briefly tests the toString method for a non-unique list.
-    @Test(timeout = 1000)
+    @Test
+    @Timeout(value = 1, unit = TimeUnit.SECONDS)
     public void checkToString() {
         SortedIntList list = new SortedIntList(5);
         list.add(5);
@@ -132,7 +138,8 @@ public class Test1 {
     }
     
     // Briefly tests the min/max methods.
-    @Test(timeout = 1000)
+    @Test
+    @Timeout(value = 1, unit = TimeUnit.SECONDS)
     public void checkMinMax() {
         SortedIntList list = new SortedIntList();
         list.add(5);

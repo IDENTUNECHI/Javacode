@@ -14,7 +14,9 @@ package java2.week7_Inheritance;
 
 import static org.junit.jupiter.api.Assertions.*;
 import java.util.*;
-import org.junit.*;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.junit.jupiter.api.Timeout;
+import org.junit.jupiter.api.Test;
 
 public class Test3 {
     // number of times to repeat each test at each size (try 2--10)
@@ -26,7 +28,8 @@ public class Test3 {
     // set to false if you don't want to see printlns for every passed test run
     public static final boolean VERBOSE = true;
     
-    @Test(timeout = 5000)
+    @Timeout(5)
+    @Test
     public void test1() {
         // the program performs 10 tests each for test sizes from 0 to MAX_TEST_SIZE
         for (int testSize = 0; testSize <= MAX_TEST_SIZE; testSize++) {
